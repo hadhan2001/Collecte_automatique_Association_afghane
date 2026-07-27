@@ -1,38 +1,8 @@
-# Associations Afghanistan – France
+# Associations afghanes en France
 
-Cette version crée une base SQLite contenant exactement cinq colonnes :
-
-1. `url_web`
-2. `fondateur_ou_auteur`
-3. `date_de_creation`
-4. `siege_ou_lieu`
-5. `enjeux_de_l_association`
-
-Le classement d’impact n’est pas stocké dans la table SQLite afin de respecter
-la limite de cinq colonnes. Il est calculé dans un fichier séparé :
-
-```text
-data/impact_scores.json
-```
-
-L’interface Streamlit utilise ce fichier pour afficher les associations de la
-plus importante à la moins importante.
-
-## Calcul de l’impact
-
-Le classement combine :
-
-- la meilleure position obtenue dans les dix premières pages Google ;
-- le nombre de requêtes différentes où l’association apparaît ;
-- les vues, abonnés ou followers lorsqu’un nombre public est visible ;
-- un léger bonus lorsque l’URL semble être un site officiel.
-
-Le nombre réel de visites d’un site n’est généralement pas public. Le score
-est donc un indicateur de visibilité, et non une mesure d’audience exacte.
+Ce projet collecte des associations et collectifs afghans ou aidant les Afghans en France, puis affiche les résultats dans une interface Streamlit.
 
 ## Installation
-
-Dans CMD :
 
 ```bat
 py -m venv .venv
@@ -46,27 +16,39 @@ python -m pip install -r requirements.txt
 python collecte_associations.py
 ```
 
-Chrome s’ouvre. Accepte les cookies Google si nécessaire, puis confirme dans
-le terminal. Le programme visite les dix premières pages pour chaque requête
-de `queries.txt`.
+## Afficher le nom des associations dans la colonne URL web
 
-La collecte directe peut déclencher un CAPTCHA. Dans ce cas, résous-le
-manuellement dans Chrome, puis reviens dans le terminal.
+Pour une base déjà créée, lance une seule fois :
 
-## Résultats
+```bat
+python creer_noms_associations.py
+```
+
+Ce script crée :
+
+```text
+data/noms_associations.json
+```
+
+La base SQLite n’est pas modifiée.
+
+## Lancer l’interface
+
+```bat
+python -m streamlit run app.py
+```
+
+Dans la colonne **URL web**, le nom de l’association est affiché à la place de « Ouvrir le site ».
+
+Le nom reste cliquable et ouvre le site correspondant.
+
+## Fichiers générés
 
 ```text
 data/associations_afghanistan_france.db
 data/associations_afghanistan_france.csv
 data/impact_scores.json
+data/noms_associations.json
 data/resultats_google_bruts.csv
 ```
 
-## Lancer l’interface
-
-```bat
-streamlit run app.py
-```
-
-L’interface affiche uniquement les cinq colonnes demandées. Le numéro de ligne
-correspond au classement d’impact.
