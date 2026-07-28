@@ -21,7 +21,7 @@ python collecte_associations.py
 Pour une base déjà créée, lance une seule fois :
 
 ```bat
-python creer_noms_associations.py
+python noms_associations.py
 ```
 
 Ce script crée :
