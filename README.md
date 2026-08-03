@@ -57,7 +57,7 @@ enjeux_de_l_association
 ### Nouvelle collecte complète
 
 ```text
-1_collecte_complete.bat
+collecte_associations.py
 ```
 
 ### Appliquer les filtres à une base déjà existante
@@ -71,7 +71,7 @@ data/associations_afghanistan_france.db
 Puis lancer :
 
 ```text
-2_filtrer_base_existante.bat
+filtrer_base_existante.py
 ```
 
 Une sauvegarde automatique est créée avant toute suppression.
