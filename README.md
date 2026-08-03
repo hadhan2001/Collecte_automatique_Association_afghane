@@ -1,4 +1,4 @@
-# Associations Afghanistan – France — filtres et tags
+# Associations Afghanistan France filtres et tags
 
 Cette version applique un filtrage strict avant de conserver un résultat.
 
@@ -52,12 +52,6 @@ enjeux_de_l_association
 
 ## Utilisation
 
-### Installation
-
-Double-cliquer sur :
-
-```text
-installer.bat
 ```
 
 ### Nouvelle collecte complète
@@ -85,7 +79,7 @@ Une sauvegarde automatique est créée avant toute suppression.
 ### Interface
 
 ```text
-3_lancer_interface.bat
+python -m streamlit run app.py
 ```
 
 L’interface permet de filtrer par :
